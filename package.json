@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "@types/google-apps-script": "^1.0.47"
+  },
+  "name": "cuds-slammer",
+  "description": "AppScript for working with CUD Exports from DoiT Internationals CMP",
+  "version": "1.0.0",
+  "main": "code.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/intelrunner/cuds-slammer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/intelrunner/cuds-slammer/issues"
+  },
+  "homepage": "https://github.com/intelrunner/cuds-slammer#readme"
+}
