@@ -59,6 +59,12 @@ function fillAverage() {
   return 200
 }
 
+
+//  This func:
+// Sets the title for 4 columns
+// Sets formulas in the newly titled columns
+// Extends those formulas down to the nearest neighbor sets the title for 4 columns
+// it
 function insertBreakdown() {
   //set sheet
   sheet = ss.getSheetByName("Main")
@@ -67,10 +73,14 @@ function insertBreakdown() {
   sheet.getRange("D1").setValue("1YR CUD (25%)")
   sheet.getRange("E1").setValue("3YR CUD (60%)")
   sheet.getRange("F1").setValue("OD Price(hr)")
+  sheet.getRange("G1").setValue("100% OD (mo)")
+  //[TODO]sheet.getRange("H1").setValue("15/25/60 Plan")
+  //[TODO]sheet.getRange("I1").setValue("Monthly Savings")
+  //[TODO]sheet.getRange("J1").setValue("Annual Savings")
 
 
   sheet.getRange("C2").setFormula("=ROUND(SUM(B2*.15),2)")
-  var miliseconds = 1000;
+  var miliseconds = 500;
   Utilities.sleep(miliseconds);
   sheet.getRange("D2").setFormula("=SUM(ROUND(B2*.25),2)");
   Utilities.sleep(miliseconds);
@@ -100,7 +110,7 @@ function writePrices() {
     sprice = getPrices(desc)
     price = range.getCell(i,6)
     price.setValue(sprice)
-    console.log(sprice.type)
+    Utilities.sleep(200)
     };
   return 200
 };
