@@ -11,3 +11,4 @@ Instructions: <https://developers.google.com/apps-script/guides/sheets/functions
 
 ## Warranty and Disclaimer
 None. This is a free software. Use it at your own risk. No support is provided. Feel free to post any issues in Github, I'll get to them as I can (this is a hobby project) and in Alpha.
+

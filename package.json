@@ -1,17 +1,21 @@
 {
   "dependencies": {
-    "@types/google-apps-script": "^1.0.47"
+    "@google-cloud/billing": "^2.4.0",
+    "@types/google-apps-script": "^1.0.47",
+    "csv-reader": "^1.0.8",
+    "dataframe-js": "^1.4.4",
+    "dotenv": "^16.0.1",
+    "jquery": "^3.6.0"
   },
   "name": "cuds-slammer",
   "description": "AppScript for working with CUD Exports from DoiT Internationals CMP",
   "version": "1.0.0",
   "main": "code.js",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
-    "type": "git",
+    "type": "module",
     "url": "git+https://github.com/intelrunner/cuds-slammer.git"
   },
   "author": "",
