@@ -84,6 +84,7 @@ function insertBreakdown() {
   Utilities.sleep(miliseconds);
   sheet.getRange("E2").setFormula("=SUM(ROUND(B2*.6),2)");
   tgt = sheet.getRange("C2:E2");
+  
   tgt.autoFillToNeighbor(SpreadsheetApp.AutoFillSeries.DEFAULT_SERIES);
 }
 
@@ -121,28 +122,4 @@ function Main() {
   insertBreakdown()
   writePrices()
 }
-  var sheet = ss.getSheetByName("Main");
-  var startRange = "A1";
-  var endRange = "F" + findRows();
-  var range = sheet.getRange(`${startRange}:${endRange}`);
-  const numRows = findRows();
-  i = 1;
-  while ((i <= numRows, i++)) {
-    cell = range.getCell(i, 1);
-    desc = cell.getValue();
-    sprice = getPrices(desc);
-    price = range.getCell(i, 6);
-    price.setValue(sprice);
-    Utilities.sleep(200);
-  }
-  return 200;
-
-function Main() {
-  findRows();
-  createMain();
-  copyData();
-  insertAverage();
-  fillAverage();
-  insertBreakdown();
-  writePrices();
-}
+ 

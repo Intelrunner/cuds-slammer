@@ -75,9 +75,9 @@ function insertBreakdown() {
   sheet.getRange("E1").setValue("3YR CUD (60%)");
   sheet.getRange("F1").setValue("OD Price(hr)");
   sheet.getRange("G1").setValue("100% OD (mo)");
-  //[TODO]sheet.getRange("H1").setValue("15/25/60 Plan")
-  //[TODO]sheet.getRange("I1").setValue("Monthly Savings")
-  //[TODO]sheet.getRange("J1").setValue("Annual Savings")
+  //@TODO #1 sheet.getRange("H1").setValue("15/25/60 Plan")
+  //@TODO #2 sheet.getRange("H2").setValue("I1").setValue("Monthly Savings")
+  //@TODO #3 sheet.getRange("H3").setValue("J1").setValue("Annual Savings")
 
   sheet.getRange("C2").setFormula("=ROUND(SUM(B2*.15),2)");
   var miliseconds = 500;
