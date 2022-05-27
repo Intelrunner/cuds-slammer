@@ -2,8 +2,6 @@
 var ss = SpreadsheetApp.getActiveSpreadsheet();
 var newName = 'data'
 
-//Clasp Test
-
 
 function findRows() {
   range = SpreadsheetApp.getActiveSheet().getLastRow();
@@ -93,27 +91,27 @@ function insertBreakdown() {
 
 //time to add in the get prices function
 function getPrices(sdesc) {
-  var url = encodeURI(`https://us-central1-eric-playground-298616.cloudfunctions.net/grabber?desc=${sdesc}`)
-  console.log(url)
-  var response = UrlFetchApp.fetch(url);
+    var url = encodeURI(`https://us-central1-eric-playground-298616.cloudfunctions.net/grabber?desc=${sdesc}`)
+    console.log(url)
+    var response = UrlFetchApp.fetch(url);
   return response;
 }
 
 function writePrices() {
   var sheet = ss.getSheetByName("Main")
   var startRange = "A1"
-  var endRange = "F" + findRows();
+  var endRange = "F"+findRows();
   var range = sheet.getRange(`${startRange}:${endRange}`)
-  const numRows = findRows();
-  i = 1
-  while (i <= numRows, i++) {
-    cell = range.getCell(i, 1)
+ const numRows = findRows();
+ i=1
+  while (i <=numRows, i++) {
+    cell = range.getCell(i,1)
     desc = cell.getValue()
     sprice = getPrices(desc)
-    price = range.getCell(i, 6)
+    price = range.getCell(i,6)
     price.setValue(sprice)
     Utilities.sleep(200)
-  };
+    };
   return 200
 };
 function Main() {
@@ -125,6 +123,8 @@ function Main() {
   insertBreakdown()
   writePrices()
 }
+
+
 
 
 
