@@ -2,7 +2,6 @@
 var ss = SpreadsheetApp.getActiveSpreadsheet();
 var newName = "data";
 
-
 function findRows() {
   range = SpreadsheetApp.getActiveSheet().getLastRow();
   console.log(range);
@@ -100,7 +99,11 @@ function getPrices(sdesc) {
   );
   console.log(url);
   var response = UrlFetchApp.fetch(url);
+<<<<<<< Updated upstream
 >>>>>>> main:code.js
+=======
+>>>>>>> 3adaab7 (changes, oh the changes):code.js
+>>>>>>> Stashed changes
   return response;
 }
 
@@ -163,4 +166,8 @@ function Main() {
   insertBreakdown();
   writePrices();
 }
+<<<<<<< Updated upstream
 >>>>>>> main:code.js
+=======
+>>>>>>> 3adaab7 (changes, oh the changes):code.js
+>>>>>>> Stashed changes
