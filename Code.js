@@ -89,32 +89,19 @@ function insertBreakdown() {
 
 //time to add in the get prices function
 function getPrices(sdesc) {
-<<<<<<< HEAD:Code.js
     var url = encodeURI(`https://us-central1-eric-playground-298616.cloudfunctions.net/grabber?desc=${sdesc}`)
     console.log(url)
     var response = UrlFetchApp.fetch(url);
-=======
-  var url = encodeURI(
-    `https://us-central1-eric-playground-298616.cloudfunctions.net/grabber?desc=${sdesc}`
-  );
-  console.log(url);
-  var response = UrlFetchApp.fetch(url);
-<<<<<<< Updated upstream
->>>>>>> main:code.js
-=======
->>>>>>> 3adaab7 (changes, oh the changes):code.js
->>>>>>> Stashed changes
-  return response;
+    return response;
 }
 
 function writePrices() {
-<<<<<<< HEAD:Code.js
   var sheet = ss.getSheetByName("Main")
   var startRange = "A1"
   var endRange = "F"+findRows();
   var range = sheet.getRange(`${startRange}:${endRange}`)
- const numRows = findRows();
- i=1
+  const numRows = findRows();
+  i=1
   while (i <=numRows, i++) {
     cell = range.getCell(i,1)
     desc = cell.getValue()
@@ -134,13 +121,6 @@ function Main() {
   insertBreakdown()
   writePrices()
 }
-
-
-
-
-
-
-=======
   var sheet = ss.getSheetByName("Main");
   var startRange = "A1";
   var endRange = "F" + findRows();
@@ -156,7 +136,7 @@ function Main() {
     Utilities.sleep(200);
   }
   return 200;
-}
+
 function Main() {
   findRows();
   createMain();
@@ -166,8 +146,3 @@ function Main() {
   insertBreakdown();
   writePrices();
 }
-<<<<<<< Updated upstream
->>>>>>> main:code.js
-=======
->>>>>>> 3adaab7 (changes, oh the changes):code.js
->>>>>>> Stashed changes
