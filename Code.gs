@@ -122,8 +122,8 @@ function writePrices() {
 }
 
 /* 
-  @todo Write function to calculate 100% OD prices
- @body price * usage * 730 (hours) = OD cost
+  TODO: Write function to calculate 100% OD prices
+   price * usage * 730 (hours) = OD cost
 */
 
 
