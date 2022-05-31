@@ -82,7 +82,7 @@ function insertBreakdown() {
   sheet.getRange("E1").setValue("3YR CUD (60%)");
   sheet.getRange("F1").setValue("OD Price(hr)");
   sheet.getRange("G1").setValue("100% OD (mo)");
-  
+
   sheet.getRange("C2").setFormula("=ROUND(SUM(B2*.15),2)");
   var miliseconds = 500;
   Utilities.sleep(miliseconds);
@@ -121,13 +121,14 @@ function writePrices() {
   return 200;
 }
 
-// @todo Write function to calculate 100% OD prices
-// @body price * usage * 730 (hours) = OD cost
-
+/* 
+  @todo Write function to calculate 100% OD prices
+ @body price * usage * 730 (hours) = OD cost
+*/
 
 
 function writeOD() {
- var sheet = ss.getSheetByName("Main");
+  var sheet = ss.getSheetByName("Main");
 }
 
 function Main() {
