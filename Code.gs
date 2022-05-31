@@ -1,4 +1,11 @@
-// Create Variables
+/* 
+
+TODO: 
+
+
+
+
+*/
 var ss = SpreadsheetApp.getActiveSpreadsheet();
 var newName = "data";
 
@@ -113,6 +120,16 @@ function writePrices() {
   }
   return 200;
 }
+
+// @todo Write function to calculate 100% OD prices
+// @body price * usage * 730 (hours) = OD cost
+
+
+
+function writeOD() {
+ var sheet = ss.getSheetByName("Main");
+}
+
 function Main() {
   findRows();
   createMain();
