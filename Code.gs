@@ -74,17 +74,24 @@ function insertBreakdown() {
   sheet.getRange("E1").setValue("3YR CUD (60%)");
   sheet.getRange("F1").setValue("OD Price(hr)");
   sheet.getRange("G1").setValue("100% OD (mo)");
+  sheet.getRange("H1").setValue("Plan_OD");
+  sheet.getRange("I1").setValue("Plan_1YR")
+  sheet.getRange("J1").setValue("Plan_3YR");
+  sheet.getRange("K1").setValue("SUDs")
 
-  sheet.getRange("C2").setFormula("=ROUND(SUM(B2*.15),2)");
+  sheet.getRange("C2").setFormula("=ROUND(SUM(B2*.15))");
   var miliseconds = 500;
   Utilities.sleep(miliseconds);
-  sheet.getRange("D2").setFormula("=SUM(ROUND(B2*.25),2)");
+  sheet.getRange("D2").setFormula("=SUM(ROUND(B2*.25))");
   Utilities.sleep(miliseconds);
-  sheet.getRange("E2").setFormula("=SUM(ROUND(B2*.6),2)");
+  sheet.getRange("E2").setFormula("=SUM(ROUND(B2*.60))");
   tgt = sheet.getRange("C2:E2");
   tgt.autoFillToNeighbor(SpreadsheetApp.AutoFillSeries.DEFAULT_SERIES);
 }
 
+/* TODO turn this into a batch process
+* 
+*/
 //time to add in the get prices function
 function getPrices(sdesc) {
   var url = encodeURI(
@@ -101,8 +108,8 @@ function writePrices() {
   var endRange = "F" + findRows();
   var range = sheet.getRange(`${startRange}:${endRange}`);
   const numRows = findRows();
-  i = 1;
-  while ((i <= numRows, i++)) {
+  i = 2;
+  while (i <= numRows) {
     cell = range.getCell(i, 1);
     desc = cell.getValue();
     sprice = getPrices(desc);
@@ -118,13 +125,31 @@ function writePrices() {
    price * usage * 730 (hours) = OD cost
 */
 
-function odMonthly() {
+function allOD() {
   const numRows = findRows();
   var sheet = ss.getSheetByName("Main");
-  var tgt = sheet.getRange("G2");
-  tgt.setFormula("=SUM(ROUND(B2*F2*730),2)");
+  var tgt = sheet.getRange("G2").setFormula("=ROUND(SUM(B2*F2*730),2)");
   tgt.autoFillToNeighbor(SpreadsheetApp.AutoFillSeries.DEFAULT_SERIES);
 }
+
+function planOD() {
+  var sheet = ss.getSheetByName("Main");
+  var tgt = sheet.getRange("H2").setFormula("=ROUND(SUM(C2*F2*730),2")
+tgt.autoFillToNeighbor(SpreadsheetApp.AutoFillSeries.DEFAULT_SERIES)
+};
+
+function plan1YR(){
+  var sheet = ss.getSheetByName("Main");
+  var tgt = sheet.getRange("I2").setFormula("=ROUND(SUM(D2*F2*730)*(1-.37),2")
+tgt.autoFillToNeighbor(SpreadsheetApp.AutoFillSeries.DEFAULT_SERIES);
+};
+
+function plan3YR(){
+  const numRows = findRows();
+  var sheet = ss.getSheetByName("Main");
+  var tgt = sheet.getRange("I2").setFormula("=ROUND(SUM(E2*F2*730)*(1-.53),2")
+tgt.autoFillToNeighbor(SpreadsheetApp.AutoFillSeries.DEFAULT_SERIES);
+};
 
 function Main() {
   findRows();
@@ -134,4 +159,8 @@ function Main() {
   fillAverage();
   insertBreakdown();
   writePrices();
+  allOD();
+  planOD();
+  plan1YR();
+  plan3YR();
 }
