@@ -92,9 +92,24 @@ function insertBreakdown() {
 /* TODO turn this into a batch process
 * 
 */
+
+
+//create an array of SKU descriptions
+function buildList() {
+  var startRange = "A2";
+  var endRange = "A" + findRows();
+  var values = SpreadsheetApp.getActiveSpreadsheet("Main").getRange(startRange, endRange);
+  
+  x = [];
+  x.append(values);
+  print(x)
+
+}
+
+
 //time to add in the get prices function
 function getPrices(sdesc) {
-  var url = encodeURI(
+    var url = encodeURI(
     `https://us-central1-eric-playground-298616.cloudfunctions.net/grabber?desc=${sdesc}`
   );
   console.log(url);
