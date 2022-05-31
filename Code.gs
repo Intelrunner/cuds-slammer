@@ -1,11 +1,3 @@
-/* 
-
-TODO: 
-
-
-
-
-*/
 var ss = SpreadsheetApp.getActiveSpreadsheet();
 var newName = "data";
 
@@ -126,9 +118,12 @@ function writePrices() {
    price * usage * 730 (hours) = OD cost
 */
 
-
-function writeOD() {
+function odMonthly() {
+  const numRows = findRows();
   var sheet = ss.getSheetByName("Main");
+  var tgt = sheet.getRange("G2");
+  tgt.setFormula("=SUM(ROUND(F2*730),2)");
+  tgt.autoFillToNeighbor(SpreadsheetApp.AutoFillSeries.DEFAULT_SERIES);
 }
 
 function Main() {
